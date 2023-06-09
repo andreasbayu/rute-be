@@ -1,0 +1,11 @@
+{
+  "name": "hk",
+  "version": "0.1.0",
+  "files": [
+    "hk_bg.wasm",
+    "hk.js",
+    "hk.d.ts"
+  ],
+  "main": "hk.js",
+  "types": "hk.d.ts"
+}
