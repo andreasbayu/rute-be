@@ -38,6 +38,7 @@ model Barang {
   alamat       String
   koordinat    Koordinat
   selesai      Boolean     @default(false)
+  status       String      @default("dikirim")
   diterimaOleh String?     @default("")
   pengiriman   Pengiriman? @relation(references: [id], fields: [pengirimanId])
   pengirimanId String?     @db.ObjectId
@@ -67,4 +68,3 @@ type Koordinat {
   longitude String
   latitude  String
 }
-

@@ -1,4 +1,4 @@
-FROM node:18 AS builder
+FROM node:lts AS builder
 
 # Create app directory
 WORKDIR /app
@@ -14,7 +14,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:18
+FROM node:lts
 
 ENV DATABASE_URL="mongodb+srv://samtron:sandalcepit@proyekinformatika.tkatqm7.mongodb.net/ptik?retryWrites=true&w=majority"
 COPY --from=builder /app/node_modules ./node_modules

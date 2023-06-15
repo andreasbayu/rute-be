@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Barang } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
+import { FilterBarangDto } from './dto/filterBarang.dto';
 
 @Injectable()
 export class BarangService {
@@ -17,6 +18,19 @@ export class BarangService {
       },
     });
   }
+
+  // async findAllByFilter(query: FilterBarangDto): Promise<Barang[]> {
+
+  //   const { namaPenerima, name, alamat, diterimaOleh, } = query;
+
+  //   return this.prisma.barang.findMany({
+  //     where: {
+  //       OR: [
+  //         {namaPenerima:  }
+  //       ]
+  //     },
+  //   });
+  // }
 
   async create(barang: Barang): Promise<Barang> {
     return this.prisma.barang.create({

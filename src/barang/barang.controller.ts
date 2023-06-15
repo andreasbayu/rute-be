@@ -8,6 +8,7 @@ import {
   Put,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 
 @Controller('barang')
@@ -22,6 +23,11 @@ export class BarangController {
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Barang> {
     return this.barangService.findOne(id);
+  }
+
+  @Get('/search')
+  async findByFilter(@Query() query: string): Promise<Barang> {
+    return this.barangService.findOne(query);
   }
 
   @Post()

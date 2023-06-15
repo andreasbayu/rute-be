@@ -3,7 +3,7 @@ import {
   Get,
   Post,
   Body,
-  Patch,
+  Put,
   Param,
   Delete,
   UseGuards,
@@ -55,7 +55,7 @@ export class UsersController {
     return this.usersService.findOne(username);
   }
 
-  @Patch(':id')
+  @Put(':id')
   @ApiOkResponse({ type: UserEntity })
   update(@Param('id') id: string, @Body() user: UpdateUserDto) {
     return this.usersService.update({ id, user });
