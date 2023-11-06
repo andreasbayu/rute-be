@@ -156,7 +156,6 @@ export class PengirimanService {
       console.table(coordinatesDirection);
 
       console.table(barangMatrix);
-      // console.table(distanceMatrix);
 
       const calculate = held_karp({
         distance: distanceMatrix,
