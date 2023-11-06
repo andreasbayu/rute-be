@@ -153,6 +153,8 @@ export class PengirimanService {
 
       coordinatesDirection.push(distance.data.features[0].geometry.coordinates);
 
+      console.table(coordinatesDirection);
+
       console.table(barangMatrix);
       // console.table(distanceMatrix);
 
