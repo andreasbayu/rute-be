@@ -48,7 +48,7 @@ export class PengirimanController {
   }
 
   @Get('kurir/:id')
-  async byKururi(@Param('id') id: string): Promise<any> {
+  async byKurir(@Param('id') id: string): Promise<any> {
     return this.pengirimanService.getAllByKurir(id);
   }
 }

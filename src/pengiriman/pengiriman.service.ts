@@ -73,7 +73,6 @@ export class PengirimanService {
     // const openRouteServiceBaseURL =
     //   'http://0.0.0.0:8080/ors/v2/directions/cycling-regular?&';
     nextTick(async () => {
-      // const get = await axios.get(openRouteServiceBaseURL);
       const getBarang = getPengiriman.barang;
 
       const distanceMatrix: number[][] = [];
@@ -134,6 +133,25 @@ export class PengirimanService {
           barangMatrix[x][y] = barang[x].kode + ' & ' + barang[y].kode;
         }
       }
+      // add kantor distance
+
+      const url =
+        openRouteServiceBaseURL +
+        `api_key=${tokens[looping_token]}&` +
+        'start=' +
+        coordinatesDirection[coordinatesDirection.length - 1][
+          1 - coordinatesDirection.length
+        ].koordinat.longitude +
+        ',' +
+        coordinatesDirection[1][1].koordinat.latitude +
+        '&end=' +
+        kantor.koordinat.longitude +
+        ',' +
+        kantor.koordinat.latitude;
+
+      const distance = await axios.get(url);
+
+      coordinatesDirection.push(distance.data.features[0].geometry.coordinates);
 
       console.table(barangMatrix);
       // console.table(distanceMatrix);
