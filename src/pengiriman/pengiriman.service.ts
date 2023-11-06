@@ -73,7 +73,7 @@ export class PengirimanService {
     // const openRouteServiceBaseURL =
     //   'http://0.0.0.0:8080/ors/v2/directions/cycling-regular?&';
     nextTick(async () => {
-      const getBarang = getPengiriman.barang;
+      const getBarang = getPengiriman?.barang;
 
       const distanceMatrix: number[][] = [];
       const barangMatrix: string[][] = [];
